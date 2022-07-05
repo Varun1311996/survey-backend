@@ -28,7 +28,7 @@ db.sequelize.sync();
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to survey application." });
 });
 
 // routes
@@ -49,7 +49,7 @@ function initial() {
  
   Role.create({
     id: 2,
-    name: "moderator"
+    name: "guest"
   });
  
   Role.create({
