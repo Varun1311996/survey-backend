@@ -26,6 +26,8 @@ db.sequelize = sequelize;
 
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.role = require("../models/role.model.js")(sequelize, Sequelize);
+db.survey = require("../models/survey.model.js")(sequelize, Sequelize);
+//db.surveyApplication = require("../models/surveyApplication.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",
@@ -37,6 +39,18 @@ db.user.belongsToMany(db.role, {
   foreignKey: "userId",
   otherKey: "roleId"
 });
+
+db.user.hasMany(db.survey,{
+  foreignKey:'userId', as:'user',
+});
+
+// db.survey.hasMany(db.surveyApplication,{
+//   foreignKey:'surveyId', as:'survey',
+// });
+
+// db.user.hasMany(db.surveyApplication,{
+//   foreignKey:'submittedBy', as:'userid',
+// });
 
 db.ROLES = ["user", "admin", "guest"];
 
