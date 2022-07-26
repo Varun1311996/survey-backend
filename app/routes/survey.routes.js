@@ -7,5 +7,11 @@ module.exports = (app) => {
     router.get("/", surveyApp.findAll); //Fetch all surveys
     router.put("/:id", surveyApp.update); //updates survey with unique id
     router.delete("/:id", surveyApp.delete); // deletes survey with unique id
+    router.post("/responses", surveyApp.createSurveyResponse);
+    router.put("/responses/:id", surveyApp.updateSurveyResponse);
+    router.get("/responses/0/getAllResponses", surveyApp.findAllSurveyResponses);
+    router.get("/responses/:id", surveyApp.findASurveyResponse);
+    router.delete("/responses/:id", surveyApp.deleteSurveyResponse);
+    router.delete("/responses/", surveyApp.deleteAllSurveyResponses);
     app.use('/api/surveys+', router);
   };

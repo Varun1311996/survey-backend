@@ -20,4 +20,8 @@ module.exports = function(app) {
   );
 
   app.post("/api/auth/signin", controller.signin);
+  app.put("/api/auth/:id", controller.update);
+  app.get("/api/auth/", controller.findAll);
+  app.delete("/api/auth/:id", controller.delete);
+  app.delete("/api/auth/", controller.deleteAll);
 };
