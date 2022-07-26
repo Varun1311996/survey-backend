@@ -1,8 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
    
-  const Survey = sequelize.define("survey", {
+  const Survey = sequelize.define("surveyresponses", {
      
-    title: {
+    name: {
       type: Sequelize.STRING
     },
     username: {
@@ -18,8 +18,7 @@ module.exports = (sequelize, Sequelize) => {
       set(value) {
         this.setDataValue('data', JSON.stringify(value))
       }
-    },
-   
+    }
   });
 
   return Survey;
